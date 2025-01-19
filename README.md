@@ -17,3 +17,9 @@ brew install flac
 
  python3 speechToText.py         // to run the app
 
+
+
+TO RUN APP
+cd to the asl-translator-frontend folder and then run
+npm install
+npm start // to run the app
