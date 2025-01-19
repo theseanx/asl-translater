@@ -35,3 +35,6 @@ npm start
 
 
 server.js and app.js should be running on different ports.
+
+
+ python3 -m pip install sign_language_translator
