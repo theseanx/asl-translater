@@ -5,6 +5,7 @@ import axios from "axios";
 const Dictaphone = () => {
   const {
     transcript,
+    finalTranscript,
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition
@@ -14,11 +15,19 @@ const Dictaphone = () => {
   const handleStop = async (transcript) => {
       SpeechRecognition.stopListening();
       try {
-          await axios.post('http://localhost:3000/translate', {transcript});
+          console.log("transcript: " + transcript);
+          console.log("finalTranscript: " + document.getElementById("Text").textContent);
+          const textData = document.getElementById("Text").textContent
+          const text_from_transcript = transcript; // to solve issue related to circular structure (which cannot be converted to json)
+          await axios.post('http://localhost:3000/translate', {textData});
           console.log('Transcript sent to server');
       } catch (error) {
           console.error('Error sending transcript to server:', error);
       }
+  }
+
+  const handleStart = () => {
+      SpeechRecognition.startListening({continuous: true});
   }
 
   if (!browserSupportsSpeechRecognition) {
@@ -28,10 +37,10 @@ const Dictaphone = () => {
   return (
     <div>
       <p>Microphone: {listening ? 'on' : 'off'}</p>
-      <button onClick={SpeechRecognition.startListening}>Start</button>
+      <button onClick={handleStart}>Start</button>
       <button onClick={handleStop}>Stop</button>
       <button onClick={resetTranscript}>Reset</button>
-      <p>{transcript}</p>
+      <p id={"Text"}>{transcript}</p>
     </div>
   );
 };
