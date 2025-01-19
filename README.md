@@ -23,3 +23,15 @@ TO RUN APP
 cd to the asl-translator-frontend folder and then run
 npm install
 npm start // to run the app
+
+
+in one terminal, cd to the root directory (asl-2)
+npm install express // run this
+npm install cors // run this
+node server.js // 60224server.js is the name of the server file
+
+in another terminal, run
+npm start
+
+
+server.js and app.js should be running on different ports.

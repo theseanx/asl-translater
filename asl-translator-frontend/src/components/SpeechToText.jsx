@@ -19,7 +19,7 @@ const Dictaphone = () => {
           console.log("finalTranscript: " + document.getElementById("Text").textContent);
           const textData = document.getElementById("Text").textContent
           const text_from_transcript = transcript; // to solve issue related to circular structure (which cannot be converted to json)
-          await axios.post('http://localhost:3000/translate', {textData});
+          await axios.post('http://localhost:3001/translate', {textData});
           console.log('Transcript sent to server');
       } catch (error) {
           console.error('Error sending transcript to server:', error);
