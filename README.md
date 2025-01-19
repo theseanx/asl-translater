@@ -31,10 +31,13 @@ npm install cors // run this
 node server.js // 60224server.js is the name of the server file
 
 in another terminal, run
+cd asl-translator-frontend
 npm start
 
 
 server.js and app.js should be running on different ports.
 
 
- python3 -m pip install sign_language_translator
+python -m pip install sign-language-translator
+try running this in the terminal
+python -c "from sign_language_translator import Translator; print(Translator().translate('${working_string}'))"
