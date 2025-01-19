@@ -41,6 +41,7 @@ const Dictaphone = () => {
       <button onClick={handleStop}>Stop</button>
       <button onClick={resetTranscript}>Reset</button>
       <p id={"Text"}>{transcript}</p>
+        <img src={'http://localhost:3001/data/a.png'}></img>
     </div>
   );
 };
